@@ -7,6 +7,7 @@ function Avatar() {
     <img
       className="avatar"
       src="https://i.pinimg.com/originals/74/56/2e/74562eaa4f80074f98fa3df200af215b.jpg"
+      alt="avatar-img"
     />
   );
 }
