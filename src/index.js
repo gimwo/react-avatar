@@ -2,6 +2,44 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "MongoDB",
+    level: "intermediate",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "React.js",
+    level: "intermediate",
+    color: "#E84F33",
+  },
+  {
+    skill: "Express.js",
+    level: "advanced",
+    color: "#60DAFB",
+  },
+  {
+    skill: "Node.js",
+    level: "beginner",
+    color: "#FF3B00",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "beginner",
+    color: "purple",
+  },
+];
+
 function Avatar() {
   return (
     <img
@@ -28,20 +66,19 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill level={3} name="HTML+CSS" bgColor="blue" />
-      <Skill level={3} name="JavaScript" bgColor="yellow" />
-      <Skill level={2} name="MongoDB" bgColor="lightgreen" />
-      <Skill level={1} name="Node.js" bgColor="green" />
-      <Skill level={2} name="Express.js" bgColor="pink" />
-      <Skill level={3} name="React.js" bgColor="lightblue" />
+      {skills.map((skill) => (
+        <Skill level={skill.level} name={skill.skill} bgColor={skill.color} />
+      ))}
     </div>
   );
 }
 
 function Skill({ name, bgColor, level }) {
   return (
-    <span style={{ backgroundColor: `${bgColor}` }} className="skill">
-      {name} {level == 3 ? "💪🏼" : level == 2 ? "👍🏼" : "🐣"}
+    <span style={{ backgroundColor: bgColor }} className="skill">
+      {name} {level === "advanced" && "💪🏼"}
+      {level === "intermediate" && "👍🏼"}
+      {level === "beginner" && "🐣"}
     </span>
   );
 }
